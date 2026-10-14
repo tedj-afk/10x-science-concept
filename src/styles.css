@@ -341,8 +341,9 @@ img {
   height: 17px;
   align-items: center;
   justify-content: center;
-  color: #c8cbd0;
-  border: 1px solid #65696f;
+  color: #fff;
+  background: #ff6600;
+  border: 1px solid #ff6600;
   font-size: 12px;
   font-family: Arial, sans-serif;
   line-height: 1;
