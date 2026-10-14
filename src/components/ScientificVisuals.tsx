@@ -17,6 +17,7 @@ export function Spectrum({
   const traceRef = useChangeMotion<SVGGElement>(seed, true);
   return (
     <figure
+      data-reveal="signal"
       className={`spectrum ${compact ? "spectrum-compact" : ""} ${mint ? "spectrum-mint" : ""}`}
       aria-labelledby={id}
     >
@@ -76,6 +77,7 @@ export function Spectrum({
             ))}
           </g>
           <line x1="0" x2="600" y1="200" y2="200" className="chart-baseline" />
+          <line className="spectrum-scan" x1="0" x2="0" y1="10" y2="200" />
         </svg>
         <div className="x-ticks" aria-hidden="true">
           <span>400</span>
@@ -99,7 +101,10 @@ export function Sequence({
   compact?: boolean;
 }) {
   return (
-    <div className={`sequence-block ${compact ? "sequence-compact" : ""}`}>
+    <div
+      className={`sequence-block ${compact ? "sequence-compact" : ""}`}
+      data-reveal="sequence"
+    >
       <div className="sequence-ruler" aria-hidden="true">
         <span>01</span>
         <span>15</span>
@@ -139,6 +144,7 @@ export function Coverage({
   return (
     <div
       className="coverage"
+      data-reveal="coverage"
       role="img"
       aria-label={`Illustrative peptide coverage. Selected region: positions ${start} to ${end}. No measured coverage is represented.`}
     >
@@ -194,7 +200,7 @@ export function WorkflowSchematic({ mode }: { mode: string }) {
     top = mode === "top-down",
     middle = mode === "middle-down";
   return (
-    <div className="workflow-diagram" data-layer>
+    <div className="workflow-diagram" data-reveal="schematic">
       <svg viewBox="0 0 540 200" role="img" aria-labelledby={id}>
         <title id={id}>
           {(top

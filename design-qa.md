@@ -61,3 +61,10 @@ Before editing, inspected the existing hero, analysis questions, and feature pan
 - Shortened entrances and kept them partially visible from the first animation frame. Reduced-motion branches remain in place; no OS setting or screen-reader session was run.
 
 The supplied brief's original all-sans/centered design has been deliberately revised under the user's latest direction. Scientific illustration boundaries and production integration limitations remain unchanged. No new external-reference fidelity claim is made.
+
+
+# Scientific motion QA — 2026-10-14
+
+The requested direction is content-specific choreography rather than repeated whole-section fade/slide effects. The visual review confirmed a stationary text/layout system with spectral reading lines, sequence registration, ordered coverage lanes, workflow assembly, drawing rules, and scroll-following marginal rulers. The existing editorial typography, open figures, and paper-colored section are preserved.
+
+Individual figures now trigger on entry rather than inheriting the visibility of a much taller parent frame. Offscreen cancellation leaves a complete readable end state. Fixed a focus/transition timing edge case and verified interruption in the production build. Rulers adapt to horizontal placement on phones. The review covered desktop and mobile widths with no horizontal overflow. Reduced-motion guards passed mocked-environment checks; OS-level emulation was not performed. These effects demonstrate illustrative data and imply no actual analysis processing.

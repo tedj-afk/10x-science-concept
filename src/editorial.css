@@ -1386,3 +1386,150 @@ h2 {
     transform: none;
   }
 }
+
+/* Scientific motion: reading rules and marginal registration marks.
+   Decorative additions are inert; analytical controls never move. */
+.visual-toolbar,
+.workflow-card,
+.inspection-detail,
+.problem-question,
+.capability-row {
+  position: relative;
+}
+.motion-rule {
+  position: absolute;
+  display: block;
+  height: 1px;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #d4d8ce60;
+  transform-origin: left center;
+  pointer-events: none;
+}
+.visual-toolbar > .motion-rule {
+  top: auto;
+  bottom: -1px;
+}
+.question-rule {
+  background: #25272755;
+}
+.problem-question + .problem-question {
+  border-top: 0;
+}
+.spectrum-scan {
+  opacity: 0;
+  stroke: var(--mint);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+  transform-box: view-box;
+}
+.problem-section .spectrum-scan {
+  stroke: #496b5d;
+}
+.reading-ruler {
+  position: absolute;
+  left: -28px;
+  top: 80px;
+  bottom: 80px;
+  width: 9px;
+  border-left: 1px solid #c0c5b91c;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+      to bottom,
+      #c0c5b942 0 1px,
+      transparent 1px 18px
+    )
+    left top / 4px 100% no-repeat;
+}
+.reading-ruler i {
+  position: absolute;
+  width: 1px;
+  top: 0;
+  bottom: 0;
+  left: -1px;
+  background: #c3cbb5;
+  transform: scaleY(var(--reading-progress, 1));
+  transform-origin: center top;
+}
+.reading-ruler b {
+  position: absolute;
+  top: calc(var(--reading-progress, 1) * 100%);
+  left: -3px;
+  height: 5px;
+  width: 5px;
+  background: var(--mint);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+/* The text stays in place; a small underline answers pointer intent. */
+.text-link {
+  position: relative;
+}
+.text-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 32px;
+  bottom: 5px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 220ms;
+}
+.text-link:hover::after,
+.text-link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+@media (max-width: 760px) {
+  .reading-ruler {
+    left: 0;
+    right: 0;
+    width: auto;
+    top: 20px;
+    bottom: auto;
+    height: 5px;
+    border: 0;
+    background: repeating-linear-gradient(
+        to right,
+        #c0c5b942 0 1px,
+        transparent 1px 20px
+      )
+      left top / 100% 3px no-repeat;
+  }
+  .reading-ruler i {
+    width: auto;
+    height: 1px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    transform: scaleX(var(--reading-progress, 1));
+    transform-origin: left center;
+  }
+  .reading-ruler b {
+    top: 0;
+    left: calc(var(--reading-progress, 1) * 100%);
+    width: 4px;
+    height: 4px;
+    transform: translate(-50%, -1px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reading-ruler b {
+    display: none;
+  }
+  .reading-ruler i {
+    transform: none;
+    opacity: 0.3;
+  }
+  .text-link::after {
+    transition: none;
+  }
+  .spectrum-scan {
+    display: none;
+  }
+}

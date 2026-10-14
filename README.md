@@ -62,11 +62,18 @@ See `verification.md` for actual build, lint, type, and browser-check results. T
 
 ## Motion system
 
-`src/motion.ts` uses IntersectionObserver and the native Web Animations API; no animation dependency was added. Hero elements and section contents reveal once with staggered 8–10px entrances. Entrances begin partially visible and finish in about half a second. Application panels layer their contents, spectra grow into view, and peptide coverage draws from left to right. The preview includes an explicit “Replay walkthrough” button. Sample and tab updates animate without remounting focused controls.
+`src/motion.ts` uses IntersectionObserver and the native Web Animations API. No animation library was added. Each analytical figure is observed independently, so a long section does not start its charts before they are visible.
 
-`src/motion.css` provides moving link arrows, navigation underlines, selection transitions, and FAQ/menu entrances. The editorial layer removes generic panel glows and whole-card lifts; motion stays with actionable controls and analytical details. Hover movement is restricted to devices with a fine pointer. There is no continuous loop, automatic tab switching, or scroll hijacking.
+- Desktop headline lines enter with a brief horizontal registration reveal. Body copy stays set in place.
+- Spectra are revealed left to right beneath a single reading line; axes remain stationary. This is illustrative choreography, not a processing indicator or measured analysis.
+- Sequence letters register in reading order, followed by selected-position markers. No sequence text is scrambled or changed.
+- Peptide coverage tracks open first, followed by their individual lanes. Workflow chains, cut marks, and larger fragments assemble in order.
+- Editorial rules draw across figures; project rows enter in sequence. A small marginal ruler follows scrolling through each capability story, changing to a horizontal ruler on phones.
+- Existing sample/peptide/tab controls and the explicit “Replay walkthrough” remain functional. Nothing auto-rotates or loops.
 
-Animations have no persistent hidden styles: content remains visible if JavaScript or an animation fails. Keyboard focus finishes an active entrance immediately. The motion preference is checked before each animation and observed for changes; active motion is cancelled on reduced-motion changes or when the document becomes hidden.
+`src/editorial.css` contains decorative reading rules, scan lines, and rulers. `src/motion.css` retains short control/link/menu/FAQ responses. There are no floating-card lifts, ambient glow loops, scroll hijacking, or text-scrambling effects.
+
+Base HTML/CSS contains the full visible content. Entrances are transient and cancel to their complete state when a figure leaves the viewport, the document becomes hidden, or reduced motion is requested. Keyboard focus immediately finishes active motion; pointer interaction finishes the relevant panel. A focus guard also prevents delayed state effects from restarting an animation around a newly focused control. Decorative rulers run only on scroll/resize events, scheduled with requestAnimationFrame, and only for visible sections. Reduced-motion users get static complete figures.
 
 ## Supplied workspace note
 
@@ -99,3 +106,7 @@ This pass responds to the request for a less generic visual identity. It intenti
 TypeScript now explicitly includes Vite client ambient types, avoiding accidental discovery of unrelated type packages in ancestor workspace folders. No application or data-service dependency was added; Newsreader is the only new asset package.
 
 Screenshots: `docs/editorial-desktop.jpg`, `docs/editorial-analysis.jpg`, and `docs/editorial-mobile.jpg`. See the latest sections of `verification.md` and `design-qa.md` for the scope and limits of browser checks.
+
+## Scientific motion refinement — 2026-10-14
+
+The motion treatment extends the editorial redesign without changing its scientific copy or data. The local build was browser-inspected for entry choreography, stable end states, keyboard interruption, sample changes, and viewport widths. Node-based mocked-environment checks exercise the reduced-motion, hidden-document, and focused-content guards; an OS-level motion-preference change was not performed. The source repository includes a short capture at `docs/scientific-motion.gif`.

@@ -15,6 +15,7 @@ function FormsDetail() {
   return (
     <div className="detail-visual forms-visual" data-reveal="panel">
       <div className="visual-toolbar" data-layer>
+        <span className="motion-rule" aria-hidden="true" />
         <span>
           <Stack size={16} />
           Proteoform exploration
@@ -54,6 +55,7 @@ function PeptideDetail() {
   return (
     <div className="detail-visual peptide-visual" data-reveal="panel">
       <div className="visual-toolbar" data-layer>
+        <span className="motion-rule" aria-hidden="true" />
         <span>
           <Stack size={16} />
           {content.ui.coverage}
@@ -91,6 +93,7 @@ function DataDetail() {
   return (
     <div className="detail-visual data-visual" data-reveal="panel">
       <div className="visual-toolbar" data-layer>
+        <span className="motion-rule" aria-hidden="true" />
         <span>
           <FolderSimple size={16} />
           {content.ui.project}
@@ -146,7 +149,12 @@ export function CapabilityRow({
   return (
     <article
       className={`capability-row capability-${item.kind} ${index % 2 === 1 ? "reversed" : ""}`}
+      data-scroll-figure
     >
+      <div className="reading-ruler" aria-hidden="true">
+        <i />
+        <b />
+      </div>
       <div className="capability-copy" data-reveal>
         <p className="eyebrow">
           <span className="section-number">0{index + 1}</span>

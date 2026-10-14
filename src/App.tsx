@@ -19,7 +19,7 @@ import { DemoSection } from "./components/DemoSection";
 function Hero() {
   return (
     <section
-      data-reveal="group"
+      data-reveal="hero"
       className="hero container"
       aria-labelledby="hero-heading"
     >
@@ -98,7 +98,8 @@ function ProblemSection() {
         </div>
         <div className="problem-questions">
           {content.problem.questions.map((q, i) => (
-            <div className="problem-question" data-reveal key={q}>
+            <div className="problem-question" data-reveal="question" key={q}>
+              <span className="motion-rule question-rule" aria-hidden="true" />
               <div className="question-top">
                 <span className="mono">0{i + 1}</span>
               </div>
@@ -142,6 +143,7 @@ function WorkflowExplorer() {
         <p className="section-body">{content.workflows.body}</p>
       </div>
       <div className="workflow-card" data-reveal="panel">
+        <span className="motion-rule" aria-hidden="true" />
         <Tabs
           id="workflow"
           items={content.workflows.items}
@@ -187,6 +189,7 @@ function AboutSection() {
           <p className="section-body">{content.about.body}</p>
         </div>
         <div className="inspection-detail" data-reveal="panel">
+          <span className="motion-rule" aria-hidden="true" />
           <div className="inspection-top" data-layer>
             <span className="technical-label">Signal detail</span>
             <span className="detail-pill">Sample A</span>
@@ -250,7 +253,9 @@ function SiteFooter() {
   ];
   return (
     <footer className="site-footer container">
-      <p className="footer-signature">{content.footer.descriptor}</p>
+      <p className="footer-signature" data-reveal="footer">
+        {content.footer.descriptor}
+      </p>
       <div className="footer-top" data-reveal>
         <div>
           <Logo />

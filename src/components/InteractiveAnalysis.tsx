@@ -103,7 +103,7 @@ export function InteractiveSpectrum({
           </button>
         </div>
       </div>
-      <figure aria-labelledby={id}>
+      <figure aria-labelledby={id} data-reveal="signal">
         <figcaption id={id} className="sr-only">
           {name}. Schematic spectrum; no experimental results. Displayed m/z
           range {Math.round(range[0])} to {Math.round(range[1])}. Selected{" "}
@@ -247,6 +247,7 @@ export function InteractiveSpectrum({
                   />
                 )}
               </g>
+              <line className="spectrum-scan" x1="0" x2="0" y1="10" y2="190" />
               <line
                 x1="0"
                 x2="600"

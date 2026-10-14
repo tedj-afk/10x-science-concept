@@ -75,3 +75,15 @@ No deployment, live data processing, analytics, or lead collection was added.
 - Reduced-motion behavior was retained and code-reviewed; no OS-level emulation or screen-reader session was run. The earlier Superset visual-access limitation was not retested. This pass evaluates the user's revised art direction rather than claiming a pixel clone of an external source.
 
 The source repository was updated; the website was not deployed, and no form/backend/analytics integration was added.
+
+## Scientific motion refinement — 2026-10-14
+
+- Build, lint, and TypeScript checks passed. No new dependencies. Bundle: 313.69 kB JavaScript (94.45 kB gzip), 83.85 kB CSS (17.09 kB gzip), plus unchanged local fonts and prerendered HTML.
+- Browser verified a sample-change spectrum reveal at a partial clip (`inset(0px 15.3848% 0px 0px)`) with a moving scan line; after completion the trace returned to `clip-path: none` and the line to opacity 0.
+- Sequence entry showed staggered letter opacity/translation, then opacity 1 and no residual transform. Figure rules similarly returned to a complete, untransformed state.
+- Capability ruler progression changed from 0.2883 to 0.5550 after scrolling. Desktop, 1024px, 768px, and 390px document widths matched their viewports.
+- Workflow tab changes animated residues and cut marks. A rapid focus test exposed a possible transition/focus race during development. Added capture-phase focus interruption and a guard against delayed updates around already focused content. Retested in a freshly loaded production build: focusing `workflow-panel` immediately yielded `clip-path: none` and no residue transform.
+- Node mocked-environment assertions passed for reduced motion, a hidden document, and focused content producing no animations, with a normal visible signal as a positive control. This is a code-level check, not OS preference emulation or a screen-reader session.
+- Browser console was clear during the motion checks. The main scientific preview remains interactive; entry effects do not change illustrative data or run analysis.
+
+Capture: `docs/scientific-motion.gif`. No site deployment, live submission, tracking, or processing was added.
