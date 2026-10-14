@@ -1,0 +1,344 @@
+/* Progressive enhancement: no content is hidden while waiting for JavaScript. */
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+.spectrum-trace {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+}
+.coverage-bar {
+  transform-origin: left center;
+}
+.site-header {
+  transition:
+    background 220ms,
+    border-color 220ms;
+}
+.button,
+.text-link svg,
+.back-top svg,
+.replay-button svg,
+.form-title svg,
+.menu-toggle svg {
+  transition:
+    transform 220ms var(--ease-out),
+    color 200ms,
+    background 200ms,
+    border-color 200ms,
+    box-shadow 220ms;
+}
+.button svg {
+  transition: transform 220ms var(--ease-out);
+}
+.button:active:not(:disabled) {
+  transform: translateY(1px) scale(0.985);
+}
+.desktop-nav a,
+.footer-top nav a,
+.login-link {
+  position: relative;
+}
+.desktop-nav a::after,
+.footer-top nav a::after,
+.login-link::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  left: 0;
+  right: 0;
+  bottom: 7px;
+  background: var(--violet);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms var(--ease-out);
+}
+.desktop-nav a:focus-visible::after,
+.footer-top nav a:focus-visible::after,
+.login-link:focus-visible::after {
+  transform: scaleX(1);
+}
+.preview-surround::before {
+  content: "";
+  position: absolute;
+  inset: 12% 10% 0;
+  z-index: -1;
+  border-radius: 50%;
+  box-shadow: 0 -35px 100px #b58af40a;
+  pointer-events: none;
+  transition: box-shadow 240ms;
+}
+.application-frame,
+.detail-visual,
+.workflow-card,
+.inspection-detail,
+.demo-card {
+  transition:
+    border-color 220ms,
+    box-shadow 220ms,
+    transform 220ms var(--ease-out);
+}
+.application-frame:focus-within,
+.detail-visual:focus-within,
+.workflow-card:focus-within,
+.demo-card:focus-within {
+  border-color: #b58af47a;
+  box-shadow:
+    0 24px 70px #0004,
+    0 0 0 1px #b58af40e;
+}
+.tabs button::after {
+  background: var(--violet);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition:
+    transform 220ms var(--ease-out),
+    opacity 220ms;
+  opacity: 0;
+}
+.tabs button[aria-selected="true"]::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+.tab-marker {
+  transition:
+    box-shadow 220ms,
+    opacity 220ms,
+    transform 220ms;
+}
+.tabs button[aria-selected="true"] .tab-marker {
+  opacity: 1;
+  box-shadow: 0 0 9px #b58af44d;
+  transform: scale(1.15);
+}
+.sample-button,
+.detail-options button,
+.forms-list button,
+.data-browser-nav button,
+.peptide-pills button {
+  transition:
+    color 200ms,
+    background 200ms,
+    border-color 200ms,
+    box-shadow 200ms,
+    transform 200ms var(--ease-out);
+}
+.residue,
+.protein-track span,
+.coverage-bar,
+.diagram-residue,
+.form-marks i {
+  transition:
+    color 220ms,
+    background 220ms,
+    border-color 220ms,
+    box-shadow 220ms,
+    fill 220ms,
+    stroke 220ms;
+}
+.residue-selected {
+  box-shadow: 0 0 12px #b58af40c;
+}
+.peak,
+.signal-band {
+  transition:
+    stroke 220ms,
+    stroke-width 220ms,
+    fill 220ms;
+}
+.question-top,
+.question-fragment,
+.section-number,
+.browser-file,
+.institution {
+  transition:
+    color 220ms,
+    opacity 220ms,
+    transform 220ms var(--ease-out),
+    border-color 220ms,
+    background 220ms;
+}
+.problem-question {
+  transition: background 220ms;
+}
+.caption-text {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+}
+.replay-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 8px;
+  margin-left: auto;
+  flex-shrink: 0;
+  min-height: 44px;
+  color: var(--muted);
+  background: transparent;
+  font: 10px var(--mono);
+}
+.replay-button:hover,
+.replay-button:focus-visible {
+  color: var(--violet);
+}
+.faq-list summary {
+  transition: color 200ms;
+}
+.faq-list summary svg {
+  transition:
+    transform 220ms var(--ease-out),
+    color 220ms;
+}
+.faq-list details[open] summary svg {
+  transform: rotate(45deg);
+  color: var(--violet);
+}
+.form-field input,
+.form-field textarea {
+  transition:
+    background 200ms,
+    border-color 200ms,
+    box-shadow 200ms;
+}
+.form-field input:focus,
+.form-field textarea:focus {
+  background: #19181e;
+  box-shadow: 0 0 0 3px #b58af410;
+}
+@media (hover: hover) and (pointer: fine) {
+  .button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow:
+      0 5px 18px #ffffff13,
+      0 0 0 4px #ffffff06;
+  }
+  .button:hover svg {
+    transform: translate(2px, -2px);
+  }
+  .form-submit:hover svg,
+  .text-link:hover svg {
+    transform: translateX(4px);
+  }
+  .desktop-nav a:hover::after,
+  .footer-top nav a:hover::after,
+  .login-link:hover::after {
+    transform: scaleX(1);
+  }
+  .application-frame:hover,
+  .workflow-card:hover,
+  .inspection-detail:hover,
+  .demo-card:hover {
+    border-color: #746082;
+    box-shadow:
+      0 24px 70px #0004,
+      0 0 30px #b58af406;
+  }
+  .detail-visual:hover {
+    transform: translateY(-4px);
+    border-color: #746082;
+    box-shadow:
+      0 28px 70px #0005,
+      0 0 25px #b58af408;
+  }
+  .preview-surround:hover::before {
+    box-shadow: 0 -35px 100px #b58af417;
+  }
+  .sample-button:hover,
+  .detail-options button:hover,
+  .forms-list button:hover,
+  .data-browser-nav button:hover,
+  .peptide-pills button:hover {
+    background: #b58af415;
+    color: #e4d4fc;
+    box-shadow: inset 2px 0 0 #b58af4;
+  }
+  .problem-question:hover {
+    background: #ffffff03;
+  }
+  .problem-question:hover .question-top,
+  .capability-row:hover .section-number {
+    color: var(--violet);
+  }
+  .problem-question:hover .question-fragment {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+  .detail-visual:hover .peak-highlight,
+  .inspection-detail:hover .peak-highlight,
+  .analysis-main:hover .peak-highlight {
+    stroke-width: 2.5;
+  }
+  .browser-row:hover .browser-file {
+    transform: translateY(-2px);
+    background: #b58af414;
+    border-color: #b58af46b;
+  }
+  .institution:hover {
+    color: var(--text);
+  }
+  .replay-button:hover svg {
+    transform: rotate(-35deg);
+  }
+  .faq-list summary:hover {
+    color: var(--violet);
+  }
+  .demo-card:hover .form-title svg {
+    transform: translate(2px, -2px);
+  }
+  .back-top:hover svg {
+    transform: rotate(180deg) translateY(3px);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .mobile-nav:not([hidden]) {
+    animation: content-enter 220ms var(--ease-out);
+  }
+  .faq-list details[open] > p,
+  .form-success {
+    animation: content-enter 220ms var(--ease-out);
+  }
+}
+@keyframes content-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 520px) {
+  .preview-caption {
+    flex-wrap: wrap;
+    gap: 0;
+    padding-block: 12px;
+  }
+  .caption-text {
+    gap: 10px;
+  }
+  .replay-button {
+    margin-left: 20px;
+    padding: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .button:hover,
+  .button:active,
+  .button:hover svg,
+  .detail-visual:hover,
+  .text-link:hover svg,
+  .problem-question:hover .question-fragment,
+  .browser-row:hover .browser-file,
+  .replay-button:hover svg,
+  .demo-card:hover .form-title svg {
+    transform: none;
+  }
+}
