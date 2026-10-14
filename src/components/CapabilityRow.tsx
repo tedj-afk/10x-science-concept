@@ -144,7 +144,9 @@ export function CapabilityRow({
   index: number;
 }) {
   return (
-    <article className={`capability-row ${index % 2 === 1 ? "reversed" : ""}`}>
+    <article
+      className={`capability-row capability-${item.kind} ${index % 2 === 1 ? "reversed" : ""}`}
+    >
       <div className="capability-copy" data-reveal>
         <p className="eyebrow">
           <span className="section-number">0{index + 1}</span>

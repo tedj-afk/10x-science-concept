@@ -4,9 +4,6 @@ import { ArrowRight } from "@phosphor-icons/react/dist/csr/ArrowRight";
 import { ArrowUpRight } from "@phosphor-icons/react/dist/csr/ArrowUpRight";
 import { CaretDown } from "@phosphor-icons/react/dist/csr/CaretDown";
 import { Plus } from "@phosphor-icons/react/dist/csr/Plus";
-import { Scan } from "@phosphor-icons/react/dist/csr/Scan";
-import { Stack } from "@phosphor-icons/react/dist/csr/Stack";
-import { MagnifyingGlass } from "@phosphor-icons/react/dist/csr/MagnifyingGlass";
 import { content, links, navigation } from "./content";
 import { SiteHeader, Logo } from "./components/SiteHeader";
 import { ProductPreview } from "./components/ProductPreview";
@@ -31,29 +28,36 @@ function Hero() {
         {content.hero.eyebrow}
       </p>
       <h1 id="hero-heading" data-layer>
-        {content.hero.lines.map((line) => (
-          <span key={line}>{line}</span>
+        {content.hero.lines.map((line, index) => (
+          <span key={line}>
+            {line}
+            {index === 0 ? " " : ""}
+          </span>
         ))}
       </h1>
-      <p className="hero-description" data-layer>
-        {content.hero.body}
-      </p>
-      <div className="hero-actions" data-layer>
-        <a className="button" href="#demo">
-          {content.hero.primary}
-          <ArrowUpRight size={18} />
-        </a>
-        <a className="text-link" href="#platform">
-          {content.hero.secondary}
-          <ArrowRight size={17} />
-        </a>
+      <div className="hero-bottom">
+        <p className="hero-description" data-layer>
+          {content.hero.body}
+        </p>
+        <div className="hero-conversion" data-layer>
+          <div className="hero-actions">
+            <a className="button" href="#demo">
+              {content.hero.primary}
+              <ArrowUpRight size={18} />
+            </a>
+            <a className="text-link" href="#platform">
+              {content.hero.secondary}
+              <ArrowRight size={17} />
+            </a>
+          </div>
+          <p className="hero-proof">
+            <span className="yc-letter" aria-hidden="true">
+              Y
+            </span>
+            {content.hero.proof}
+          </p>
+        </div>
       </div>
-      <p className="hero-proof" data-layer>
-        <span className="yc-letter" aria-hidden="true">
-          Y
-        </span>
-        {content.hero.proof}
-      </p>
     </section>
   );
 }
@@ -81,49 +85,44 @@ function ResearchStrip() {
 function ProblemSection() {
   return (
     <section
-      className="problem-section section-block container"
+      className="problem-section section-block"
       aria-labelledby="problem-heading"
     >
-      <div className="section-intro" data-reveal>
-        <div>
-          <p className="eyebrow">{content.problem.eyebrow}</p>
-          <h2 id="problem-heading">{content.problem.heading}</h2>
-        </div>
-        <p className="section-body">{content.problem.body}</p>
-      </div>
-      <div className="problem-questions">
-        {content.problem.questions.map((q, i) => (
-          <div className="problem-question" data-reveal key={q}>
-            <div className="question-top">
-              <span className="mono">0{i + 1}</span>
-              {i === 0 ? (
-                <Scan size={19} />
-              ) : i === 1 ? (
-                <Stack size={19} />
-              ) : (
-                <MagnifyingGlass size={19} />
-              )}
-            </div>
-            <h3>{q}</h3>
-            <div
-              className={`question-fragment fragment-${i}`}
-              aria-hidden="true"
-            >
-              {i === 0 ? (
-                <Spectrum seed={3} compact />
-              ) : i === 1 ? (
-                <Sequence positions={[6, 18, 27]} compact />
-              ) : (
-                <Coverage start={22} end={37} />
-              )}
-            </div>
+      <div className="container problem-inner">
+        <div className="section-intro" data-reveal>
+          <div>
+            <p className="eyebrow">{content.problem.eyebrow}</p>
+            <h2 id="problem-heading">{content.problem.heading}</h2>
           </div>
-        ))}
+          <p className="section-body">{content.problem.body}</p>
+        </div>
+        <div className="problem-questions">
+          {content.problem.questions.map((q, i) => (
+            <div className="problem-question" data-reveal key={q}>
+              <div className="question-top">
+                <span className="mono">0{i + 1}</span>
+              </div>
+              <h3>{q}</h3>
+              <div
+                className={`question-fragment fragment-${i}`}
+                aria-hidden="true"
+              >
+                {i === 0 ? (
+                  <Spectrum seed={3} compact />
+                ) : i === 1 ? (
+                  <Sequence positions={[6, 18, 27]} compact />
+                ) : (
+                  <Coverage start={22} end={37} />
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="closing-line" data-reveal>
+          {content.problem.closing}
+          <ArrowRight size={17} />
+        </p>
       </div>
-      <p className="closing-line" data-reveal>
-        {content.problem.closing}
-        <ArrowRight size={17} />
-      </p>
     </section>
   );
 }
@@ -149,6 +148,7 @@ function WorkflowExplorer() {
           value={selected}
           onChange={setSelected}
           label="Protein workflows"
+          verticalOnDesktop
         />
         <div
           className="workflow-panel"
@@ -250,10 +250,10 @@ function SiteFooter() {
   ];
   return (
     <footer className="site-footer container">
+      <p className="footer-signature">{content.footer.descriptor}</p>
       <div className="footer-top" data-reveal>
         <div>
           <Logo />
-          <p>{content.footer.descriptor}</p>
         </div>
         <nav aria-label="Footer navigation">
           {footerLinks.map((link) => (

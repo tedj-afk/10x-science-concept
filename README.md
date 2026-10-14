@@ -1,6 +1,6 @@
 # 10x Science — independent concept by Hippo
 
-A complete local marketing website using React, TypeScript, Vite, and CSS tokens. This is an independent redesign concept, not an authorized replacement for the live website. This public repository shares the concept source; the website is not deployed. There is no backend, analytics, tracking, or live lead collection. The page is marked `noindex, nofollow`, without a canonical URL.
+A complete local marketing website using React, TypeScript, Vite, and CSS tokens. This is an independent redesign concept, not an authorized replacement for the live website. The source is available on GitHub; no website has been deployed. There is no backend, analytics, tracking, or live lead collection. The page is marked `noindex, nofollow`, without a canonical URL.
 
 ## Run
 
@@ -30,7 +30,7 @@ Reviewed 2026-10-12:
 - Composition reference: https://superset.sh/. Public textual content was accessible; see verification notes for visual-access limitations. The detailed user brief specifies the dark canvas, centered type, thin panels, generous spacing, and wide application demonstration. Superset copy, customer logos, security claims, and developer features are excluded.
 - Authentic wordmark: https://10xscience.com/assets/10x-Science_wordmark-dark.svg. Saved unchanged at `public/assets/10x-science-wordmark.svg`. The live site's brand-download UI exposes this asset. Local concept reuse is not a declaration of permission to publish.
 - Official routes verified in the public application's router: https://10xscience.com/login, https://10xscience.com/blog, https://10xscience.com/careers. The source header explicitly links to `/login`.
-- Geist Sans and Geist Mono: locally bundled Fontsource packages, SIL Open Font License, `font-display: swap`.
+- Newsreader for editorial headlines, Geist Sans for body/interface text, and Geist Mono for technical labels: locally bundled Fontsource packages, SIL Open Font License, `font-display: swap`. Newsreader loads only its Latin variable font; no third-party font requests.
 - Phosphor Icons React: MIT. No stock photography or invented logo symbol. Institution names use text, with explicit research-background context. The YC indicator is typographic, not a downloaded logo.
 
 ## Conceptual UI
@@ -52,7 +52,7 @@ Remaining integration needs, only after separate authorization:
 1. Company approval of design, scientific copy, claims, and trademark use.
 2. Confirmation of instruments, formats, deployment, data handling, and evaluation terms.
 3. Approved privacy/legal wording and lead/scheduling destination; replace the isolated adapter and button label only then. Add server validation and appropriate abuse protection at that stage.
-4. Final accessibility review, approved domain, and indexing decision before any production deployment.
+4. Final accessibility review, approved domain, and indexing decision before any publication.
 
 ## Accessibility and verification
 
@@ -62,12 +62,15 @@ See `verification.md` for actual build, lint, type, and browser-check results. T
 
 ## Motion system
 
-`src/motion.ts` uses IntersectionObserver and the native Web Animations API; no animation dependency was added. Hero elements and section contents reveal once with staggered 10–12px entrances. Application panels layer their contents, spectra grow into view, and peptide coverage draws from left to right. The preview includes an explicit “Replay walkthrough” button. Sample and tab updates animate without remounting focused controls.
+`src/motion.ts` uses IntersectionObserver and the native Web Animations API; no animation dependency was added. Hero elements and section contents reveal once with staggered 8–10px entrances. Entrances begin partially visible and finish in about half a second. Application panels layer their contents, spectra grow into view, and peptide coverage draws from left to right. The preview includes an explicit “Replay walkthrough” button. Sample and tab updates animate without remounting focused controls.
 
-`src/motion.css` adds short button lifts, moving link arrows, navigation underlines, panel edge highlights, feature-panel lift, selection transitions, and FAQ/menu entrances. Hover movement is restricted to devices with a fine pointer. There is no continuous loop, automatic tab switching, or scroll hijacking.
+`src/motion.css` provides moving link arrows, navigation underlines, selection transitions, and FAQ/menu entrances. The editorial layer removes generic panel glows and whole-card lifts; motion stays with actionable controls and analytical details. Hover movement is restricted to devices with a fine pointer. There is no continuous loop, automatic tab switching, or scroll hijacking.
 
 Animations have no persistent hidden styles: content remains visible if JavaScript or an animation fails. Keyboard focus finishes an active entrance immediately. The motion preference is checked before each animation and observed for changes; active motion is cancelled on reduced-motion changes or when the document becomes hidden.
 
+## Supplied workspace note
+
+This Documents folder offloaded newly written files to iCloud during the build. To keep the local runtime reliable, the active project is in `work/local.nosync/`; root source/config paths link there. From this workspace, run `cd work/local.nosync` before npm commands. The downloadable ZIP is self-contained with normal files: after extracting it, run npm commands directly in the extracted folder. No unrelated files or system settings were modified.
 
 ## Interactive product demonstration — 2026-10-14
 
@@ -86,3 +89,13 @@ The concept now includes:
 This is an independent adaptation of **public website demonstration patterns**, not a reproduction of the scientific analysis engine or a claim about shipping software. No real spectra, molecular structures, masses, match scores, coverage percentages, or experimental results were copied. Example annotations are unrestricted UI markers, not biochemical assignments or chemistry validation. No data is processed, transmitted, or persisted. All original marketing copy and the visible illustrative-data labels remain in place.
 
 See `design-qa.md` and `verification.md` for the checks actually performed. Screenshots are in `docs/interactive-desktop.jpg` and `docs/interactive-mobile.jpg` in the public source repository.
+
+## Editorial redesign — 2026-10-14
+
+This pass responds to the request for a less generic visual identity. It intentionally evolves the original centered, all-sans direction: Newsreader headlines, a left-aligned two-line desktop hero, split introductory copy/actions, a warm paper-colored analysis spread, and open scientific figures replace repetitive outlined cards. The workflow selector becomes a margin index on desktop; a large typographic footer closes the page. These are concept design decisions, not claims about the company's official brand.
+
+`src/editorial.css` owns marketing typography, section composition, and the paper-colored form. The existing base/interface styles remain separate so the interactive analysis controls retain their density and behavior. Mobile layouts stack, and desktop workflow tabs use Up/Down keys with the correct vertical ARIA orientation; smaller layouts use Left/Right. Focus indicators, illustrative labels, exact marketing copy, local-only form handling, noindex, and reduced-motion fallbacks remain intact.
+
+TypeScript now explicitly includes Vite client ambient types, avoiding accidental discovery of unrelated type packages in ancestor workspace folders. No application or data-service dependency was added; Newsreader is the only new asset package.
+
+Screenshots: `docs/editorial-desktop.jpg`, `docs/editorial-analysis.jpg`, and `docs/editorial-mobile.jpg`. See the latest sections of `verification.md` and `design-qa.md` for the scope and limits of browser checks.

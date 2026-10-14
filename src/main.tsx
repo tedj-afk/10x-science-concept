@@ -5,6 +5,7 @@ import "@fontsource-variable/geist-mono";
 import "./styles.css";
 import "./interactive-preview.css";
 import "./motion.css";
+import "./editorial.css";
 import App from "./App";
 
 const root = document.getElementById("root")!;

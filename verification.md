@@ -1,6 +1,6 @@
 # Verification — 10x Science concept
 
-Verified on 2026-10-12. Application built and tested locally on that date. Source published separately to GitHub; no production deployment or lead collection is configured.
+Verified on 2026-10-12. Built and run locally; nothing published or connected to production.
 
 ## Commands completed successfully
 
@@ -8,8 +8,8 @@ Verified on 2026-10-12. Application built and tested locally on that date. Sourc
 - `npm run build`: TypeScript, Vite production build, and static prerender. Final build: 82 transformed modules, approximately 298.82 kB JavaScript (89.32 kB gzip), 49.08 kB CSS (10.56 kB gzip), plus prerendered HTML.
 - `npm run typecheck`: passed.
 - `npm run lint`: passed.
-- `npm run dev`: verified on http://127.0.0.1:5173/.
-- `npm run preview -- --port 4173`: built preview verified on http://127.0.0.1:4173/.
+- `npm run dev`: running on http://127.0.0.1:5173/.
+- `npm run preview -- --port 4173`: built preview running on http://127.0.0.1:4173/.
 
 ## Browser checks performed
 
@@ -24,6 +24,10 @@ Final built-page browser console: no warnings or errors. Hydration and all tab a
 ## Access limitations
 
 Both external websites' public code/content were retrieved, and the authentic 10x Science wordmark and official routes verified. External browser visual captures failed (timeouts, empty page, or black native capture), so desktop/mobile reference sections and direct Superset screenshot comparison remain unverified. The build follows the user's detailed visual specification. The design-QA report records this external-comparison limitation rather than claiming a fidelity pass.
+
+## Workspace workaround
+
+The original Documents workspace was automatically offloading new source and dependency files to iCloud, causing blocked file reads. Active sources and dependencies now live in `work/local.nosync/`, with root source/config links for convenience. No system settings or unrelated files were changed. Run workspace commands from that local-only folder. The ZIP includes actual source files, build output, and configuration without these workspace symlinks or node_modules.
 
 ## Remaining integrations
 
@@ -47,10 +51,6 @@ Reduced-motion handling was reviewed in both JavaScript and CSS. An OS-level red
 
 Final responsive fix: reduced the decorative spectrum field’s side extension below 760px. Rechecked the natural 755px viewport: document width 755px, field bounds 4–751px. Final build, typecheck, and lint passed; final browser console was clear.
 
-## Public source preparation — 2026-10-14
-
-A clean copy containing 30 source, configuration, documentation, and attribution files was prepared for GitHub. Fresh npm install, production build, TypeScript check, and ESLint check passed. Source credentials and local-user-path pattern scans found no matches. Generated builds, dependencies, local working files, and environment files are excluded. The website itself remains undeployed, with no live lead collection.
-
 ## Interactive example update — 2026-10-14
 
 - `npm ci --no-audit --no-fund` restored incomplete local dependency files.
@@ -63,3 +63,15 @@ A clean copy containing 30 source, configuration, documentation, and attribution
 - 10x Science's public interactive demonstrations were successfully captured and inspected on desktop and mobile. The previous 10x Science visual-access limitation no longer applies. This update did not repeat the Superset visual review.
 
 No deployment, live data processing, analytics, or lead collection was added.
+
+## Editorial redesign — 2026-10-14
+
+- `npm run build`, `npm run lint`, and `npm run typecheck` passed. A subsequent CSS-only narrow-screen footer fix was rebuilt. The production bundle remains about 309.34 kB JavaScript (93.41 kB gzip), 81.8 kB CSS (16.6 kB gzip), plus local fonts and prerendered HTML. Newsreader's Latin variable font is 58.08 kB.
+- Browser review covered 1440×1000, 1024×900, 768×1000, and 390×844. Each matched document/viewport widths. An additional 320px edge-case check found the long footer word overflowing; a responsive font clamp fixed it and the document width rechecked at exactly 320px.
+- Verified desktop vertical workflow tabs with ArrowDown and mobile horizontal tabs with ArrowRight, including matching ARIA orientation. Mobile menu opened and closed after selecting Platform/Workflows. Main platform tabs switched with all labels fitting at 390px.
+- Empty form validation focused Name and displayed all required errors. Fictional academic-domain input completed the local preview, cleared fields, and displayed the explicit no-request-sent confirmation. FAQ expansion passed.
+- The browser reported one H1, noindex/nofollow, no broken images, and no console warnings/errors during this review. Font rendering was verified as Newsreader in the browser.
+- The paper-colored analysis section, unboxed feature figures, workflow index, redesigned form, and typographic footer were visually inspected. New screenshots are `docs/editorial-desktop.jpg`, `docs/editorial-analysis.jpg`, and `docs/editorial-mobile.jpg`.
+- Reduced-motion behavior was retained and code-reviewed; no OS-level emulation or screen-reader session was run. The earlier Superset visual-access limitation was not retested. This pass evaluates the user's revised art direction rather than claiming a pixel clone of an external source.
+
+The source repository was updated; the website was not deployed, and no form/backend/analytics integration was added.

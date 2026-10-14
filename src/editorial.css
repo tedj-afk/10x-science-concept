@@ -1,0 +1,1388 @@
+/* Editorial layer: marketing composition is intentionally separate from the
+   dense application UI in styles.css and interactive-preview.css. */
+@font-face {
+  font-family: "Newsreader";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2")
+    format("woff2");
+}
+:root {
+  --display: "Newsreader", Georgia, serif;
+  --paper: #e9e6de;
+  --ink: #252727;
+  --radius: 5px;
+  --muted: #acafae;
+}
+.container {
+  width: min(1200px, calc(100% - 96px));
+}
+.eyebrow {
+  color: #b8bbb7;
+  font-size: 11px;
+  letter-spacing: 1.1px;
+}
+h2 {
+  font-family: var(--display);
+  font-size: clamp(42px, 4.3vw, 60px);
+  font-weight: 400;
+  letter-spacing: -1.7px;
+  line-height: 1.04;
+}
+.button {
+  border-radius: 3px;
+  min-height: 50px;
+  font-weight: 500;
+}
+.button-small {
+  min-height: 44px;
+}
+.header-inner {
+  min-height: 86px;
+  border-bottom: 1px solid #ffffff18;
+}
+.site-header.scrolled {
+  border-color: transparent;
+}
+.site-header.scrolled .header-inner {
+  border-color: transparent;
+}
+.desktop-nav {
+  margin-left: auto;
+  margin-right: 70px;
+  gap: 28px;
+}
+.desktop-nav a {
+  font-size: 13px;
+}
+.hero {
+  padding: 80px 0 68px;
+  text-align: left;
+}
+.hero .eyebrow {
+  justify-content: flex-start;
+  margin-bottom: 34px;
+  font-size: 11px;
+}
+.eyebrow-line {
+  width: 26px;
+  background: #a7b5ae;
+}
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(58px, 6.4vw, 92px);
+  letter-spacing: -3.25px;
+  line-height: 1.015;
+  max-width: none;
+  margin: 0;
+}
+.hero h1 span:last-child {
+  color: var(--text);
+}
+.hero-bottom {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 90px;
+  align-items: start;
+  margin-top: 36px;
+}
+.hero-description {
+  margin: 0;
+  max-width: 580px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.hero-conversion {
+  padding-top: 3px;
+}
+.hero-actions {
+  justify-content: flex-end;
+  margin: 0;
+  gap: 26px;
+}
+.hero-actions .text-link {
+  font-size: 13px;
+}
+.hero-proof {
+  justify-content: flex-end;
+  margin: 18px 0 0;
+  font-size: 11px;
+}
+.platform {
+  padding-top: 28px;
+  border-top: 1px solid #ffffff21;
+}
+.platform-intro {
+  margin-bottom: 28px;
+  gap: 60px;
+}
+.platform-intro h2 {
+  font-family: var(--display);
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: -0.65px;
+}
+.platform-intro .eyebrow {
+  font-size: 10px;
+  margin-bottom: 12px;
+}
+.platform-intro > p {
+  font-size: 13px;
+  max-width: 390px;
+}
+.spectrum-field {
+  opacity: 0.18;
+  top: -16px;
+}
+.preview-surround::before {
+  display: none;
+}
+.application-frame {
+  border: 1px solid #ffffff24;
+  border-radius: 5px;
+  box-shadow: 0 28px 60px #0003;
+}
+.app-chrome {
+  background: #202321;
+}
+.app-brand > span:last-child {
+  color: #b6bab5;
+}
+.interactive-frame > .tabs {
+  background: #181b1a;
+}
+.preview-caption {
+  min-height: 72px;
+}
+.research-strip {
+  padding: 45px 0 66px;
+  margin-top: 0;
+  border: 0;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  text-align: left;
+  column-gap: 64px;
+}
+.research-strip > p:first-child {
+  font-size: 12px;
+  max-width: 190px;
+  align-self: center;
+}
+.institutions {
+  padding: 0;
+  justify-content: space-between;
+  gap: 24px;
+}
+.institution {
+  color: #c5c7c1;
+}
+.research-note {
+  grid-column: 2;
+  margin-top: 20px;
+  font-size: 10px;
+}
+/* A paper spread breaks the dark-page repetition and gives the buyer's
+   scientific questions a distinct editorial role. */
+.problem-section {
+  background: var(--paper);
+  color: var(--ink);
+  padding: 88px 0 58px;
+  margin-top: 24px;
+}
+.problem-section .eyebrow {
+  color: #5b615c;
+}
+.problem-section .section-intro {
+  grid-template-columns: 1.5fr 1fr;
+  gap: 100px;
+}
+.problem-section h2 {
+  font-size: clamp(44px, 4.6vw, 66px);
+  letter-spacing: -2px;
+}
+.problem-section .section-body {
+  color: #565d59;
+  font-size: 16px;
+  padding-bottom: 6px;
+}
+.problem-questions {
+  margin-top: 55px;
+  border-color: #25272730;
+  gap: 42px;
+}
+.problem-question,
+.problem-question:first-child,
+.problem-question:last-child {
+  padding: 26px 0 16px;
+}
+.problem-question + .problem-question {
+  border: 0;
+}
+.question-top {
+  color: #686e68;
+  margin-bottom: 22px;
+}
+.question-top .mono {
+  font-size: 12px;
+}
+.problem-question h3 {
+  font-size: 21px;
+  line-height: 1.35;
+  font-weight: 450;
+  max-width: 280px;
+  letter-spacing: -0.4px;
+}
+.question-fragment {
+  opacity: 0.82;
+  height: 100px;
+  margin-top: 27px;
+  mask-image: none;
+}
+.question-fragment .peak {
+  stroke: #777e76;
+}
+.question-fragment .peak-highlight {
+  stroke: #73538f;
+}
+.question-fragment .chart-grid {
+  stroke: #25272718;
+}
+.question-fragment .residue {
+  color: #646b63;
+}
+.question-fragment .residue-selected {
+  color: #634b7d;
+  border-color: #84639d66;
+  background: #84639d18;
+}
+.question-fragment .protein-track span {
+  background: #c3c7bc;
+}
+.question-fragment .protein-track .track-selected {
+  background: #967caf;
+}
+.question-fragment .coverage-lane {
+  border-color: #25272716;
+}
+.question-fragment .sequence-ruler,
+.question-fragment .coverage-ruler {
+  color: #757b73;
+}
+.question-fragment .coverage-bar {
+  background: #bbc4b6;
+}
+.question-fragment .coverage-bar-selected {
+  background: #638675;
+}
+.problem-section .closing-line {
+  justify-content: flex-start;
+  color: #555d57;
+  margin-top: 27px;
+  font-size: 13px;
+}
+/* Product details read as figures on a page, not repeated floating cards. */
+.capabilities {
+  padding-top: 58px;
+  padding-bottom: 44px;
+}
+.capability-row {
+  gap: 110px;
+  grid-template-columns: 0.85fr 1.15fr;
+  padding-block: 78px;
+  align-items: center;
+}
+.capability-row.reversed {
+  grid-template-columns: 1.2fr 0.8fr;
+}
+.capability-copy .eyebrow {
+  margin-bottom: 27px;
+  gap: 22px;
+}
+.section-number {
+  color: #a9a39b;
+  border-top: 1px solid #69675f;
+  padding-top: 6px;
+  align-self: baseline;
+}
+.capability-copy h2 {
+  font-family: var(--display);
+  font-size: clamp(40px, 4vw, 57px);
+  line-height: 1.04;
+  letter-spacing: -1.6px;
+  max-width: 440px;
+}
+.capability-copy > p:last-child {
+  margin-top: 25px;
+  line-height: 1.75;
+  font-size: 16px;
+  max-width: 380px;
+}
+.detail-visual {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  overflow: visible;
+}
+.visual-toolbar {
+  padding: 0 0 16px;
+  min-height: 44px;
+  background: transparent;
+  border-bottom: 1px solid #ffffff30;
+  font-size: 12px;
+}
+.visual-toolbar svg {
+  display: none;
+}
+.mini-badge {
+  border: 0;
+  padding: 0;
+  font-size: 10px;
+}
+.visual-inner {
+  padding: 30px 0 22px;
+}
+.visual-footer {
+  background: none;
+  border-color: #ffffff20;
+  padding: 14px 0 0;
+  font-size: 10px;
+}
+.forms-visual .sequence {
+  gap: 10px 3px;
+}
+.forms-visual .residue {
+  font-size: 15px;
+}
+.forms-list {
+  margin-top: 28px;
+  gap: 0;
+}
+.forms-list button {
+  border-radius: 0;
+  border: 0;
+  border-top: 1px solid #ffffff15;
+  min-height: 52px;
+  padding-inline: 14px;
+  font-size: 12px;
+}
+.forms-list button[aria-pressed="true"] {
+  background: #b58af414;
+  box-shadow: inset 2px 0 var(--violet);
+}
+.form-marks i {
+  width: 18px;
+  height: 5px;
+}
+.peptide-visual .visual-inner {
+  padding: 30px 0 20px;
+}
+.peptide-visual .protein-track {
+  height: 24px;
+}
+.peptide-visual .coverage-lane {
+  height: 19px;
+  border-color: #ffffff0a;
+}
+.peptide-visual .coverage-bar {
+  height: 7px;
+}
+.peptide-visual .spectrum-plot {
+  height: 150px;
+}
+.peptide-pills {
+  margin-top: 22px;
+  padding-bottom: 20px;
+  gap: 14px;
+}
+.peptide-pills button {
+  border: 0;
+  border-radius: 2px;
+  font-size: 11px;
+}
+.peptide-pills button[aria-pressed="true"] {
+  box-shadow: inset 0 -2px var(--violet);
+}
+.capability-data {
+  border-top: 1px solid #ffffff20;
+  margin-top: 30px;
+  padding-block: 78px 100px;
+}
+.data-browser {
+  min-height: 320px;
+  grid-template-columns: 165px minmax(0, 1fr);
+}
+.data-browser-nav {
+  background: transparent;
+  padding-left: 0;
+  border: 0;
+  padding-top: 28px;
+}
+.data-browser-nav button {
+  font-size: 12px;
+  border-radius: 2px;
+}
+.data-browser-main {
+  padding: 28px 0 24px 28px;
+}
+.browser-row {
+  min-height: 64px;
+  font-size: 13px;
+  border-color: #ffffff19;
+}
+.browser-file {
+  border: 0;
+  color: #c5b0d9;
+  background: #ffffff07;
+  border-radius: 2px;
+}
+/* The workflow selector is a margin index beside a single wide figure. */
+.workflow-section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+  border-color: #ffffff20;
+}
+.centered-intro {
+  max-width: none;
+  margin: 0;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  column-gap: 110px;
+}
+.centered-intro .eyebrow {
+  grid-column: 1 / -1;
+}
+.centered-intro h2 {
+  margin: 0;
+  max-width: 630px;
+}
+.centered-intro .section-body {
+  margin: 0;
+  max-width: 390px;
+  font-size: 16px;
+  align-self: end;
+}
+.workflow-card {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  margin-top: 60px;
+  border: 0;
+  border-top: 1px solid #ffffff28;
+  border-radius: 0;
+  background: none;
+  overflow: visible;
+}
+.workflow-card .tabs {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 30px 30px 0 0;
+  gap: 0;
+  border: 0;
+  background: transparent;
+}
+.workflow-card .tabs button {
+  min-height: 62px;
+  font-size: 15px;
+  justify-content: flex-start;
+  padding: 0 12px;
+}
+.workflow-card .tabs button::after {
+  left: 0;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+}
+.workflow-card .tabs button[aria-selected="true"] {
+  background: #ffffff04;
+}
+.workflow-card .tab-marker {
+  display: none;
+}
+.workflow-panel {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  min-height: 355px;
+}
+.workflow-copy {
+  padding: 34px 28px 20px 20px;
+}
+.workflow-copy .technical-label {
+  color: #b4b3b6;
+}
+.workflow-copy h3 {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.08;
+  margin-top: 26px;
+}
+.workflow-copy > p:not(.technical-label) {
+  font-size: 14px;
+  line-height: 1.7;
+}
+.workflow-diagram {
+  background: transparent;
+  border: 0;
+  padding: 25px 0 15px 20px;
+}
+.workflow-diagram > svg {
+  height: 175px;
+}
+.diagram-spectrum {
+  margin-inline: 0;
+}
+/* One expansive analytical figure, with text in its left margin. */
+.about-section {
+  border-color: #ffffff20;
+  padding-block: 104px;
+}
+.about-main {
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 95px;
+}
+.about-copy h2 {
+  font-size: 58px;
+  max-width: 390px;
+}
+.about-copy .section-body {
+  font-size: 16px;
+  line-height: 1.75;
+}
+.inspection-detail {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.inspection-top {
+  padding: 0 0 26px;
+  border-bottom: 1px solid #ffffff22;
+  margin-bottom: 30px;
+}
+.inspection-top .detail-pill {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  padding: 0;
+  font-size: 10px;
+}
+.inspection-detail > .spectrum {
+  padding: 0 0 0 27px;
+}
+.inspection-detail .spectrum-plot {
+  height: 260px;
+}
+.inspection-detail > .spectrum .axis-y {
+  left: 0;
+}
+.inspection-sequence {
+  margin: 28px 0 18px;
+}
+.about-block {
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 95px;
+  margin-top: 68px;
+  border-color: #ffffff20;
+}
+.about-block h3 {
+  font-family: var(--display);
+  font-size: 34px;
+  font-weight: 400;
+}
+.about-block p {
+  max-width: 590px;
+}
+.faq-section {
+  padding-block: 94px 110px;
+  gap: 120px;
+  border-color: #ffffff20;
+  grid-template-columns: 0.9fr 1.1fr;
+}
+.faq-title h2 {
+  font-family: var(--display);
+  font-size: 55px;
+  font-weight: 400;
+  line-height: 1.04;
+  max-width: 380px;
+}
+.faq-list summary {
+  font-size: 15px;
+  min-height: 77px;
+}
+.faq-list details,
+.faq-list details:first-child {
+  border-color: #ffffff22;
+}
+.faq-list details:first-child {
+  border-top: 0;
+}
+.faq-list details > p {
+  line-height: 1.8;
+  padding-right: 25px;
+}
+.demo-section {
+  border-color: #ffffff20;
+  padding-block: 100px;
+  gap: 120px;
+}
+.demo-copy {
+  padding-top: 36px;
+}
+.demo-copy h2 {
+  font-family: var(--display);
+  font-size: 65px;
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -1.8px;
+  max-width: 500px;
+}
+.demo-copy .section-body {
+  margin-top: 28px;
+  font-size: 16px;
+}
+.demo-direction {
+  color: #a4ada6;
+  margin-top: 36px;
+}
+.demo-direction svg {
+  width: 70px;
+}
+.demo-card {
+  color: var(--ink);
+  background: var(--paper);
+  padding: 32px;
+  border: 0;
+  border-radius: 3px;
+  box-shadow: none;
+}
+.form-title {
+  border-color: #25272725;
+  font-size: 18px;
+  padding-bottom: 25px;
+}
+.form-title svg {
+  color: #5e665e;
+}
+.form-field label {
+  color: #303630;
+  font-size: 12px;
+}
+.form-field label > span {
+  color: #5c655c;
+}
+.form-field input,
+.form-field textarea {
+  background: #ffffff26;
+  border: 0;
+  border-bottom: 1px solid #757e7180;
+  border-radius: 0;
+  color: var(--ink);
+  padding: 12px 10px;
+}
+.form-field input:focus,
+.form-field textarea:focus {
+  background: #ffffff66;
+  box-shadow: none;
+}
+.form-field input:focus-visible,
+.form-field textarea:focus-visible {
+  outline-color: #74518f;
+}
+.form-field input[aria-invalid="true"] {
+  border-color: #a03737;
+}
+.form-field textarea::placeholder {
+  color: #697168;
+}
+.form-submit {
+  background: #292e29;
+  color: var(--paper);
+  border-color: #292e29;
+  border-radius: 2px;
+}
+.form-submit:hover {
+  background: #3a4339;
+  border-color: #3a4339;
+}
+.concept-notice {
+  color: #586056;
+  font-size: 10px;
+  line-height: 1.65;
+}
+.field-error {
+  color: #9a2929;
+}
+.form-success {
+  color: #2f5f48;
+  border-color: #46675450;
+  background: #64887015;
+}
+.site-footer {
+  border-top: 1px solid #ffffff20;
+  padding-top: 54px;
+}
+.footer-signature {
+  font-family: var(--display);
+  font-size: clamp(48px, 6.5vw, 92px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  max-width: 900px;
+  margin: 0 0 64px;
+  color: #dbded6;
+}
+.footer-top {
+  align-items: center;
+}
+.footer-bottom {
+  border-color: #ffffff15;
+}
+/* Motion belongs to the action or data, never a glow around every container. */
+.application-frame:focus-within {
+  border-color: #ffffff40;
+  box-shadow: 0 28px 60px #0003;
+}
+.detail-visual:focus-within,
+.workflow-card:focus-within,
+.demo-card:focus-within {
+  box-shadow: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .button:hover:not(:disabled) {
+    transform: none;
+    box-shadow: none;
+  }
+  .application-frame:hover {
+    border-color: #ffffff32;
+    box-shadow: 0 28px 60px #0003;
+  }
+  .detail-visual:hover,
+  .workflow-card:hover,
+  .inspection-detail:hover,
+  .demo-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: #ffffff28;
+  }
+  .problem-question:hover {
+    background: transparent;
+  }
+  .problem-question:hover .question-top {
+    color: #614779;
+  }
+  .browser-row:hover .browser-file {
+    transform: none;
+  }
+  .question-fragment {
+    transition:
+      opacity 200ms,
+      transform 220ms;
+  }
+}
+@media (max-width: 1100px) {
+  .desktop-nav {
+    margin-right: 22px;
+    gap: 23px;
+  }
+  .hero {
+    padding-top: 65px;
+  }
+  .hero h1 {
+    font-size: 7.1vw;
+    letter-spacing: -2.6px;
+  }
+  .hero-bottom {
+    gap: 40px;
+    grid-template-columns: 1.2fr 1fr;
+  }
+  .hero-description {
+    font-size: 16px;
+  }
+  .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .hero-proof {
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+  .hero-conversion {
+    padding-left: 30px;
+  }
+  .research-strip {
+    grid-template-columns: 180px 1fr;
+    gap: 22px 40px;
+  }
+  .institutions {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .research-note {
+    margin-top: 0;
+  }
+  .problem-section .section-intro {
+    gap: 50px;
+  }
+  .problem-questions {
+    gap: 30px;
+  }
+  .capability-row,
+  .capability-row.reversed {
+    gap: 60px;
+  }
+  .capability-copy h2 {
+    font-size: 47px;
+  }
+  .centered-intro {
+    gap: 0 55px;
+  }
+  .workflow-card {
+    grid-template-columns: 165px minmax(0, 1fr);
+  }
+  .workflow-card .tabs {
+    padding-right: 15px;
+  }
+  .workflow-card .tabs button {
+    font-size: 13px;
+  }
+  .workflow-copy {
+    padding-inline: 20px;
+  }
+  .workflow-copy h3 {
+    font-size: 30px;
+  }
+  .workflow-diagram {
+    padding-left: 0;
+  }
+  .about-main,
+  .about-block {
+    gap: 50px;
+  }
+  .about-copy h2 {
+    font-size: 48px;
+  }
+  .faq-section {
+    gap: 70px;
+  }
+  .faq-title h2 {
+    font-size: 48px;
+  }
+  .demo-section {
+    gap: 60px;
+  }
+  .demo-copy h2 {
+    font-size: 55px;
+  }
+  .demo-card {
+    padding: 27px;
+  }
+}
+@media (max-width: 900px) {
+  .container {
+    width: calc(100% - 64px);
+  }
+  .header-inner {
+    min-height: 76px;
+  }
+  .hero {
+    padding: 58px 0;
+  }
+  .hero h1 {
+    font-size: 7.2vw;
+    letter-spacing: -2px;
+  }
+  .hero-bottom {
+    gap: 36px;
+  }
+  .hero-conversion {
+    padding-left: 0;
+  }
+  .platform-intro h2 {
+    font-size: 30px;
+  }
+  .platform-intro > p {
+    max-width: 300px;
+    font-size: 12px;
+  }
+  .research-strip {
+    grid-template-columns: 1fr;
+    padding-block: 36px 50px;
+  }
+  .research-strip > p:first-child {
+    max-width: none;
+  }
+  .research-note {
+    grid-column: 1;
+  }
+  .institutions {
+    justify-content: space-between;
+  }
+  .problem-section {
+    padding-block: 72px 48px;
+  }
+  .problem-section .section-intro {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .problem-section h2 {
+    font-size: 56px;
+  }
+  .problem-section .section-body {
+    max-width: 520px;
+  }
+  .problem-question h3 {
+    font-size: 18px;
+  }
+  .problem-questions {
+    gap: 22px;
+  }
+  .capability-row,
+  .capability-row.reversed {
+    gap: 38px;
+    padding-block: 65px;
+  }
+  .capability-copy h2 {
+    font-size: 41px;
+  }
+  .capability-copy > p:last-child {
+    font-size: 14px;
+  }
+  .forms-visual .residue {
+    font-size: 12px;
+  }
+  .form-marks i {
+    width: 9px;
+  }
+  .data-browser {
+    grid-template-columns: 1fr;
+  }
+  .data-browser-nav {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+  .data-browser-nav button {
+    font-size: 11px;
+    justify-content: center;
+  }
+  .data-browser-main {
+    padding: 22px 0;
+  }
+  .centered-intro {
+    grid-template-columns: 1fr;
+  }
+  .centered-intro h2 {
+    max-width: 550px;
+    font-size: 50px;
+  }
+  .centered-intro .section-body {
+    margin-top: 25px;
+    max-width: 500px;
+  }
+  .workflow-card {
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+  }
+  .workflow-card .tabs {
+    flex-direction: row;
+    padding: 0;
+    gap: 35px;
+    border-bottom: 1px solid #ffffff20;
+  }
+  .workflow-card .tabs button {
+    font-size: 14px;
+    padding: 0 8px;
+  }
+  .workflow-card .tabs button::after {
+    width: 100%;
+    height: 2px;
+  }
+  .workflow-copy {
+    padding-left: 0;
+  }
+  .workflow-copy h3 {
+    font-size: 35px;
+    max-width: 270px;
+  }
+  .about-main {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 35px;
+  }
+  .about-copy h2 {
+    font-size: 44px;
+  }
+  .about-copy .section-body {
+    font-size: 14px;
+  }
+  .inspection-detail .spectrum-plot {
+    height: 230px;
+  }
+  .faq-section {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 45px;
+  }
+  .faq-title h2 {
+    font-size: 42px;
+  }
+  .demo-section {
+    gap: 35px;
+  }
+  .demo-copy h2 {
+    font-size: 48px;
+  }
+  .demo-copy .section-body {
+    font-size: 15px;
+  }
+  .demo-card {
+    padding: 23px;
+  }
+}
+@media (max-width: 760px) {
+  .container {
+    width: calc(100% - 40px);
+  }
+  .header-inner {
+    min-height: 74px;
+  }
+  .hero {
+    padding-top: 52px;
+    padding-bottom: 44px;
+  }
+  .hero .eyebrow {
+    font-size: 9px;
+    margin-bottom: 28px;
+    letter-spacing: 0.9px;
+  }
+  .hero h1 {
+    font-size: clamp(44px, 7.8vw, 59px);
+    letter-spacing: -1.7px;
+    line-height: 1.04;
+  }
+  .hero h1 span {
+    display: inline;
+  }
+  .hero-bottom {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    margin-top: 26px;
+  }
+  .hero-description {
+    font-size: 16px;
+    max-width: 550px;
+  }
+  .hero-actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 23px;
+  }
+  .hero-actions .button {
+    min-width: 0;
+    padding-inline: 17px;
+    gap: 17px;
+    font-size: 12px;
+  }
+  .hero-actions .text-link {
+    margin: 0;
+    font-size: 12px;
+    gap: 10px;
+  }
+  .hero-proof {
+    margin-top: 18px;
+    font-size: 10px;
+  }
+  .platform {
+    padding-top: 24px;
+  }
+  .platform-intro {
+    display: block;
+    margin-bottom: 23px;
+  }
+  .platform-intro h2 {
+    font-size: 31px;
+    max-width: none;
+    letter-spacing: -0.6px;
+  }
+  .platform-intro > p {
+    max-width: 470px;
+    margin-top: 15px;
+    font-size: 13px;
+  }
+  .platform-intro .eyebrow {
+    font-size: 9px;
+  }
+  .preview-caption {
+    min-height: 70px;
+  }
+  .research-strip {
+    gap: 22px;
+    padding-bottom: 45px;
+  }
+  .institutions {
+    justify-content: flex-start;
+    gap: 20px 32px;
+  }
+  .research-note {
+    margin: 0;
+    max-width: none;
+  }
+  .problem-section {
+    margin-top: 15px;
+    padding-block: 66px 40px;
+  }
+  .problem-section h2 {
+    font-size: 43px;
+    letter-spacing: -1.2px;
+  }
+  .problem-section .section-body {
+    font-size: 15px;
+    margin-top: 24px;
+  }
+  .problem-questions {
+    margin-top: 36px;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .problem-question,
+  .problem-question:first-child,
+  .problem-question:last-child {
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    padding: 24px 0;
+    gap: 0 20px;
+    align-items: center;
+  }
+  .problem-question + .problem-question {
+    border-top: 1px solid #25272725;
+  }
+  .question-top {
+    grid-column: 1;
+    margin-bottom: 13px;
+  }
+  .problem-question h3 {
+    grid-column: 1;
+    font-size: 19px;
+    max-width: 250px;
+  }
+  .question-fragment {
+    margin: 0;
+    grid-column: 2;
+    grid-row: 1 / 3;
+    height: 74px;
+    mask-image: linear-gradient(to right, transparent, #000 20%);
+  }
+  .question-fragment .sequence {
+    min-width: 160px;
+  }
+  .question-fragment .coverage {
+    min-width: 150px;
+  }
+  .question-fragment .sequence-ruler {
+    display: none;
+  }
+  .problem-section .closing-line {
+    font-size: 12px;
+  }
+  .capabilities {
+    padding-top: 18px;
+    padding-bottom: 28px;
+  }
+  .capability-row,
+  .capability-row.reversed {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-block: 55px;
+  }
+  .capability-copy h2 {
+    font-size: 44px;
+    max-width: 440px;
+  }
+  .capability-copy > p:last-child {
+    font-size: 16px;
+    max-width: 520px;
+    margin-top: 22px;
+  }
+  .capability-copy .eyebrow {
+    margin-bottom: 23px;
+  }
+  .detail-visual {
+    width: 100%;
+  }
+  .forms-visual .residue {
+    font-size: 13px;
+  }
+  .form-marks i {
+    width: 14px;
+  }
+  .data-browser-nav button svg {
+    display: block;
+  }
+  .data-browser-nav {
+    gap: 10px;
+  }
+  .data-browser-nav button {
+    gap: 8px;
+  }
+  .data-browser-main {
+    padding: 25px 0;
+  }
+  .capability-data {
+    margin-top: 10px;
+  }
+  .workflow-section,
+  .about-section,
+  .faq-section {
+    padding-block: 66px;
+  }
+  .centered-intro h2 {
+    font-size: 44px;
+    max-width: 500px;
+  }
+  .centered-intro .section-body {
+    font-size: 16px;
+    margin-top: 23px;
+  }
+  .workflow-card .tabs {
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .workflow-card .tabs button {
+    font-size: 13px;
+    min-height: 58px;
+  }
+  .workflow-panel {
+    grid-template-columns: 1fr;
+  }
+  .workflow-copy {
+    padding: 32px 0 24px;
+  }
+  .workflow-copy h3 {
+    max-width: none;
+    margin-top: 17px;
+    font-size: 34px;
+  }
+  .workflow-copy > p:not(.technical-label) {
+    font-size: 15px;
+    max-width: 450px;
+  }
+  .workflow-legend {
+    padding-top: 20px;
+  }
+  .workflow-diagram {
+    border-top: 1px solid #ffffff16;
+    padding: 12px 0 0;
+  }
+  .workflow-diagram > svg {
+    height: 170px;
+  }
+  .about-main {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+  .about-copy h2 {
+    font-size: 44px;
+    max-width: 400px;
+  }
+  .about-copy .section-body {
+    font-size: 16px;
+  }
+  .inspection-detail .spectrum-plot {
+    height: 230px;
+  }
+  .inspection-sequence .sequence {
+    grid-template-columns: repeat(20, 1fr);
+  }
+  .inspection-sequence .residue {
+    font-size: 11px;
+  }
+  .about-block {
+    margin-top: 40px;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .about-block h3 {
+    font-size: 30px;
+  }
+  .faq-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .faq-title h2 {
+    font-size: 43px;
+    max-width: 420px;
+  }
+  .faq-list summary {
+    font-size: 15px;
+  }
+  .demo-section {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding-block: 66px;
+  }
+  .demo-copy {
+    padding: 0;
+  }
+  .demo-copy h2 {
+    font-size: 47px;
+    max-width: 490px;
+  }
+  .demo-copy .section-body {
+    font-size: 16px;
+  }
+  .demo-card {
+    padding: 25px;
+  }
+  .footer-signature {
+    font-size: clamp(40px, 13.3vw, 53px);
+    letter-spacing: -1.4px;
+    margin-bottom: 40px;
+  }
+  .footer-top {
+    align-items: flex-start;
+  }
+}
+@media (max-width: 390px) {
+  .hero h1 {
+    font-size: 43px;
+  }
+  .hero-actions {
+    gap: 17px;
+  }
+  .hero-actions .text-link {
+    font-size: 11px;
+  }
+  .problem-section h2 {
+    font-size: 39px;
+  }
+  .capability-copy h2,
+  .centered-intro h2,
+  .about-copy h2,
+  .faq-title h2 {
+    font-size: 41px;
+  }
+  .forms-visual .residue {
+    font-size: 11px;
+  }
+  .data-browser-nav {
+    gap: 2px;
+  }
+  .demo-card {
+    padding: 22px;
+  }
+  .form-fields {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .question-fragment {
+    transition: none;
+  }
+  .problem-question:hover .question-fragment {
+    transform: none;
+  }
+}

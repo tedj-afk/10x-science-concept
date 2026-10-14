@@ -40,3 +40,24 @@ The actual scientific engine, source molecular structures, glycan drawing editor
 - [x] Preserve local-only form, illustrative data, and noindex.
 
 final result: passed
+
+
+# Editorial refinement QA — 2026-10-14
+
+Scope: typography, visual hierarchy, marketing layout, borders, hover treatment, and responsive adaptation. The user asked for a more distinctive, less generic result; this is intentionally a redesign rather than a pixel-fidelity clone.
+
+## Fresh evidence and design decisions
+
+Before editing, inspected the existing hero, analysis questions, and feature panels in the browser. The repeated sans-serif headlines, nested borders, and floating-card treatments gave sections similar emphasis. The new design uses Newsreader display type, asymmetrical desktop compositions, a contrasting paper-colored analysis section, unboxed feature figures, and an indexed workflow layout. The application keeps its dense sans-serif UI and necessary functional separators. Authentic logo, exact scientific copy, and illustrative-data labels are retained.
+
+## Checks and fixes
+
+- Inspected the hero, main preview, paper section, feature figures, workflow explorer, FAQ, contact form, and footer.
+- Responsive browser checks at 1440×1000, 1024×900, 768×1000, and 390×844 showed document width equal to viewport width. A further 320px check exposed a long footer word; a responsive display-size clamp fixed the overflow, then the document rechecked at 320px.
+- Updated workflow keyboard orientation to match its vertical desktop layout; Up/Down work above 900px, Left/Right below. Existing Home/End behavior is retained.
+- Mobile navigation opens and closes after selecting a destination; all platform tab labels fit at 390px.
+- Local form required-field errors focus Name. A fictional academic-domain email completes the preview, clears input values, and explicitly confirms that no request was sent. FAQ expansion remains functional.
+- Replaced dark chart guide lines in the paper section with softer ink rules; removed redundant decorative icons and panel glows/lifts.
+- Shortened entrances and kept them partially visible from the first animation frame. Reduced-motion branches remain in place; no OS setting or screen-reader session was run.
+
+The supplied brief's original all-sans/centered design has been deliberately revised under the user's latest direction. Scientific illustration boundaries and production integration limitations remain unchanged. No new external-reference fidelity claim is made.

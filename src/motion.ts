@@ -39,21 +39,21 @@ export function reveal(element: HTMLElement) {
     animate(
       element,
       [
-        { opacity: 0, transform: "translateY(12px)" },
+        { opacity: 0.35, transform: "translateY(10px)" },
         { opacity: 1, transform: "translateY(0)" },
       ],
-      640,
+      460,
     );
   }
   layers.forEach((layer, index) => {
     animate(
       layer,
       [
-        { opacity: 0, transform: "translateY(10px)" },
+        { opacity: 0.35, transform: "translateY(8px)" },
         { opacity: 1, transform: "translateY(0)" },
       ],
-      600,
-      Math.min(index * 75, 300),
+      420,
+      Math.min(index * 55, 220),
     );
   });
   element.querySelectorAll(".spectrum-trace").forEach((trace) => {
@@ -74,7 +74,7 @@ export function reveal(element: HTMLElement) {
         { opacity: 0, transform: "scaleX(0.1)" },
         { opacity: 1, transform: "scaleX(1)" },
       ],
-      640,
+      460,
       100 + index * 45,
     );
   });
