@@ -23,7 +23,13 @@ export function Tabs({
     if (next !== undefined) {
       event.preventDefault();
       onChange(items[next].id);
-      document.getElementById(`${id}-tab-${items[next].id}`)?.focus();
+      const button = document.getElementById(`${id}-tab-${items[next].id}`);
+      button?.focus({ preventScroll: true });
+      button?.scrollIntoView({
+        block: "nearest",
+        inline: "nearest",
+        behavior: "instant",
+      });
     }
   }
   return (
@@ -37,7 +43,14 @@ export function Tabs({
           aria-selected={value === item.id}
           aria-controls={`${id}-panel`}
           tabIndex={value === item.id ? 0 : -1}
-          onClick={() => onChange(item.id)}
+          onClick={(event) => {
+            onChange(item.id);
+            event.currentTarget.scrollIntoView({
+              block: "nearest",
+              inline: "nearest",
+              behavior: "instant",
+            });
+          }}
           onKeyDown={(e) => onKeyDown(e, i)}
         >
           <span className="tab-marker" aria-hidden="true" />

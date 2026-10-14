@@ -50,3 +50,16 @@ Final responsive fix: reduced the decorative spectrum field’s side extension b
 ## Public source preparation — 2026-10-14
 
 A clean copy containing 30 source, configuration, documentation, and attribution files was prepared for GitHub. Fresh npm install, production build, TypeScript check, and ESLint check passed. Source credentials and local-user-path pattern scans found no matches. Generated builds, dependencies, local working files, and environment files are excluded. The website itself remains undeployed, with no live lead collection.
+
+## Interactive example update — 2026-10-14
+
+- `npm ci --no-audit --no-fund` restored incomplete local dependency files.
+- `npm run build`, `npm run typecheck`, and `npm run lint` passed after the final tab fix. Production build: 87 modules, 313.35 kB JavaScript (94.06 kB gzip), 62.40 kB CSS (13.02 kB gzip), plus static prerender and local fonts. Node 22.20.0 was used for Vite/native build dependencies.
+- Browser-inspected at 1440×1000, 1024×900, 768×1000, and 390×844. Document width equaled viewport width. The 390px preview controls measured at least 44×44px.
+- Sample switching, signal selection, linked sequence regions, pointer drag zoom, zoom/reset buttons, keyboard arrows and reset, annotation toggling, residue navigation, add/remove/clear annotations, peptide selection, tab arrow/Home/End behavior, replay completion, and replay interruption were exercised. Mobile menu closed after a destination was selected.
+- Fixed a mobile active-tab label that could remain partially clipped. Narrowed tab gaps and ensured click/keyboard activation scrolls the selected tab into view; rechecked all three labels at 390px.
+- Production preview at port 4173: chart selection/zoom/reset and modification editing passed; one H1, noindex/nofollow, and all images loaded. Console contained no warnings or errors. Empty form validation focused Name; an academic-domain example completed locally, cleared fields, and displayed “Preview complete. No request has been sent.” FAQ expansion passed.
+- JavaScript/CSS reduced-motion branches and cleanup were inspected; OS-level reduced-motion emulation and a screen-reader session were not performed. Browser automation had transient input timeouts during the extra form/FAQ smoke test; native browser controls completed those checks successfully.
+- 10x Science's public interactive demonstrations were successfully captured and inspected on desktop and mobile. The previous 10x Science visual-access limitation no longer applies. This update did not repeat the Superset visual review.
+
+No deployment, live data processing, analytics, or lead collection was added.

@@ -68,3 +68,21 @@ See `verification.md` for actual build, lint, type, and browser-check results. T
 
 Animations have no persistent hidden styles: content remains visible if JavaScript or an animation fails. Keyboard focus finishes an active entrance immediately. The motion preference is checked before each animation and observed for changes; active motion is cancelled on reduced-motion changes or when the document becomes hidden.
 
+
+## Interactive product demonstration — 2026-10-14
+
+The live 10x Science website was visually inspected in the Codex in-app browser on desktop and at 390px. The public Analysis example, annotation controls, residue modification editor, replay sequences, data browser, and peptide mapping example informed this update. This supersedes the earlier visual-access limitation for **10x Science**; Superset's earlier capture limitation is unchanged.
+
+The concept now includes:
+
+- SVG spectra with pointer drag zoom, double-click reset, a hover crosshair/readout, and zoom/reset buttons.
+- Three selectable example signals linked to sequence regions and the detail panel. Left/right arrow keys select a signal; `+` zooms, and `0`, `-`, or Escape resets the chart.
+- Annotations toggle and a sequence-position editor. Choose a residue and an example category, then add/remove an annotation; selected positions are marked in the sequence. Clear returns a useful empty state. Arrow keys and Home/End move through residue positions without adding 60 tab stops.
+- Peptide selection synchronizing coverage, sequence, spectrum, and detail views.
+- A user-triggered, three-step walkthrough for each tab. It stops on direct interaction, when the frame leaves the viewport, or when the document is hidden. Reduced motion shows the final state immediately; it never rotates tabs automatically.
+
+`src/components/InteractiveAnalysis.tsx` contains the chart and sequence controls. `src/previewData.ts` contains deterministic drawing data and range helpers. No runtime dependencies were added.
+
+This is an independent adaptation of **public website demonstration patterns**, not a reproduction of the scientific analysis engine or a claim about shipping software. No real spectra, molecular structures, masses, match scores, coverage percentages, or experimental results were copied. Example annotations are unrestricted UI markers, not biochemical assignments or chemistry validation. No data is processed, transmitted, or persisted. All original marketing copy and the visible illustrative-data labels remain in place.
+
+See `design-qa.md` and `verification.md` for the checks actually performed. Screenshots are in `docs/interactive-desktop.jpg` and `docs/interactive-mobile.jpg` in the public source repository.
